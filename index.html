@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- SEO Meta -->
+    <title>DocPoc • Find & book doctors in Morocco | Online appointments</title>
+    <meta name="description" content="DocPoc – Morocco's leading healthcare booking platform. Find top-rated doctors, book appointments 24/7, teleconsultations, and manage your health.">
+    <meta name="keywords" content="doctor appointment Morocco, DocPoc, Doctolib Morocco, book doctor Casablanca, medical visit Rabat, teleconsultation Morocco">
+    <meta name="author" content="DocPoc">
+    <!-- Open Graph -->
+    <meta property="og:title" content="DocPoc • Book doctors in Morocco">
+    <meta property="og:description" content="Find and book appointments with the best healthcare professionals in Morocco. Fast, secure, and user-friendly.">
+    <meta property="og:image" content="https://docpoc.ma/og-image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docpoc.ma/">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B63E5',
+                        secondary: '#1E293B',
+                        accent: '#F59E0B',
+                        soft: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-soft font-sans text-secondary antialiased">
+
+<!-- ========== GLOBAL HEADER ========== -->
+<header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 md:h-20">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fas fa-stethoscope text-3xl text-primary"></i>
+                    <span class="text-2xl font-bold text-primary tracking-tight">Doc<span class="text-secondary">Poc</span></span>
+                    <span class="bg-primary/10 text-primary text-xs font-semibold px-2 py-1 rounded-full ml-2">Morocco</span>
+                </a>
+            </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="index.html" class="nav-link text-primary font-semibold">Home</a>
+                <a href="doctors.html" class="nav-link text-secondary hover:text-primary transition">Find Doctors</a>
+                <a href="appointments.html" class="nav-link text-secondary hover:text-primary transition">My Appointments</a>
+                <a href="teleconsultation.html" class="nav-link text-secondary hover:text-primary transition">Teleconsult</a>
+            </nav>
+            <!-- Right actions -->
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <div class="hidden sm:flex items-center space-x-1 text-sm border-r pr-4 mr-2">
+                    <button class="lang-btn text-gray-500 hover:text-primary font-medium">FR</button>
+                    <span class="text-gray-300">|</span>
+                    <button class="lang-btn text-primary font-semibold">EN</button>
+                </div>
+                <a href="login.html" id="loginBtnHeader" class="text-sm font-semibold text-primary border border-primary/30 hover:bg-primary/5 px-4 py-2 rounded-full transition hidden md:inline-block">Login</a>
+                <a href="signup.html" class="bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:bg-primary/90 transition">Sign up</a>
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="md:hidden text-2xl text-secondary focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+        <a href="index.html" class="block py-2 font-medium text-primary">Home</a>
+        <a href="doctors.html" class="block py-2 font-medium">Find Doctors</a>
+        <a href="appointments.html" class="block py-2 font-medium">My Appointments</a>
+        <a href="teleconsultation.html" class="block py-2 font-medium">Teleconsult</a>
+        <a href="login.html" class="block py-2 font-medium text-primary">Login</a>
+    </div>
+</header>
+
+<main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="relative bg-gradient-to-br from-primary/5 via-white to-soft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full">🇲🇦 Morocco's healthcare hub</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-secondary mt-6 leading-tight">
+                        Book doctor appointments <br> 
+                        <span class="text-primary">in seconds.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mt-4 max-w-lg">
+                        Find the best specialists near you, manage your visits, and access teleconsultations — all with DocPoc.
+                    </p>
+                    <!-- Search widget -->
+                    <div class="mt-8 bg-white p-5 rounded-2xl shadow-xl border border-gray-100">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="flex-1 relative">
+                                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" placeholder="Specialty, doctor name..." class="w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition">
+                            </div>
+                            <div class="flex-1 relative">
+                                <i class="fas fa-map-pin absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" placeholder="City, region..." class="w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" value="Casablanca">
+                            </div>
+                            <a href="doctors.html" class="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-calendar-check"></i> Search
+                            </a>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-3 text-sm">
+                            <span class="text-gray-500">Popular:</span>
+                            <a href="#" class="text-primary hover:underline">General practitioner</a>
+                            <span class="text-gray-300">•</span>
+                            <a href="#" class="text-primary hover:underline">Dentist</a>
+                            <span class="text-gray-300">•</span>
+                            <a href="#" class="text-primary hover:underline">Cardiologist</a>
+                            <span class="text-gray-300">•</span>
+                            <a href="#" class="text-primary hover:underline">Dermatologist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative hidden md:block">
+                    <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Doctor consulting patient" class="rounded-3xl shadow-2xl object-cover w-full h-auto" style="max-height: 450px;">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg flex items-center gap-3 border-l-4 border-primary">
+                        <div class="bg-green-100 p-2 rounded-full"><i class="fas fa-check-circle text-green-600 text-xl"></i></div>
+                        <div><p class="font-bold">+2000 doctors</p><p class="text-sm text-gray-500">across Morocco</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary">How <span class="text-primary">DocPoc</span> works</h2>
+                <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Three simple steps to better healthcare access</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-2xl bg-soft hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary text-2xl"><i class="fas fa-search"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">1. Search</h3>
+                    <p class="text-gray-600">Find a doctor by specialty, location, or name. Filter by availability and patient ratings.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-soft hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary text-2xl"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">2. Book</h3>
+                    <p class="text-gray-600">Choose a time slot that fits your schedule. Instant confirmation, no phone calls.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-soft hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary text-2xl"><i class="fas fa-video"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">3. Consult</h3>
+                    <p class="text-gray-600">Visit the practice or join a teleconsultation. Manage everything from your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED SPECIALTIES & DOCTORS ===== -->
+    <section class="py-16 bg-soft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold text-secondary">Top specialties</h2>
+                <a href="doctors.html" class="text-primary font-semibold hover:underline flex items-center gap-1">See all <i class="fas fa-arrow-right text-sm"></i></a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                <a href="#" class="bg-white p-5 rounded-xl shadow-sm hover:shadow border border-gray-100 text-center group">
+                    <i class="fas fa-user-md text-3xl text-primary mb-3"></i>
+                    <h4 class="font-semibold group-hover:text-primary">General</h4>
+                    <p class="text-xs text-gray-400 mt-1">340 doctors</p>
+                </a>
+                <a href="#" class="bg-white p-5 rounded-xl shadow-sm hover:shadow border border-gray-100 text-center group">
+                    <i class="fas fa-tooth text-3xl text-primary mb-3"></i>
+                    <h4 class="font-semibold group-hover:text-primary">Dentist</h4>
+                    <p class="text-xs text-gray-400 mt-1">210 doctors</p>
+                </a>
+                <a href="#" class="bg-white p-5 rounded-xl shadow-sm hover:shadow border border-gray-100 text-center group">
+                    <i class="fas fa-heartbeat text-3xl text-primary mb-3"></i>
+                    <h4 class="font-semibold group-hover:text-primary">Cardiology</h4>
+                    <p class="text-xs text-gray-400 mt-1">98 doctors</p>
+                </a>
+                <a href="#" class="bg-white p-5 rounded-xl shadow-sm hover:shadow border border-gray-100 text-center group">
+                    <i class="fas fa-female text-3xl text-primary mb-3"></i>
+                    <h4 class="font-semibold group-hover:text-primary">Gynecology</h4>
+                    <p class="text-xs text-gray-400 mt-1">156 doctors</p>
+                </a>
+                <a href="#" class="bg-white p-5 rounded-xl shadow-sm hover:shadow border border-gray-100 text-center group">
+                    <i class="fas fa-child text-3xl text-primary mb-3"></i>
+                    <h4 class="font-semibold group-hover:text-primary">Pediatrics</h4>
+                    <p class="text-xs text-gray-400 mt-1">189 doctors</p>
+                </a>
+            </div>
+
+            <!-- Featured doctors -->
+            <div class="mt-16">
+                <div class="flex justify-between items-end mb-8">
+                    <h2 class="text-3xl font-bold text-secondary">Highly rated doctors</h2>
+                    <a href="doctors.html" class="text-primary font-semibold hover:underline">View all</a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6" id="featuredDoctorsContainer">
+                    <!-- Populated by JS from data.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TELEMEDICINE BANNER ===== -->
+    <section class="py-12 bg-primary/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-primary/20 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">New</span>
+                    <h3 class="text-2xl md:text-3xl font-bold mt-3">Consult a doctor from home</h3>
+                    <p class="text-gray-600 mt-2 max-w-xl">Teleconsultation available with many specialists. Secure video calls, prescriptions, and follow-ups.</p>
+                    <a href="teleconsultation.html" class="inline-block mt-5 bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition shadow">Book a teleconsultation <i class="fas fa-arrow-right ml-2"></i></a>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <img src="https://images.pexels.com/photos/4226122/pexels-photo-4226122.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Teleconsultation" class="rounded-2xl max-h-56 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-secondary text-white/80 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <h4 class="font-bold text-white mb-4">DocPoc</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About us</a></li>
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Press</a></li>
+                    <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4">For patients</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="doctors.html" class="hover:text-white transition">Find a doctor</a></li>
+                    <li><a href="appointments.html" class="hover:text-white transition">My appointments</a></li>
+                    <li><a href="#" class="hover:text-white transition">Help center</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4">For doctors</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Join DocPoc Pro</a></li>
+                    <li><a href="#" class="hover:text-white transition">Software</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4">Download app</h4>
+                <div class="flex space-x-3">
+                    <a href="#" class="bg-black/20 p-2 rounded-lg hover:bg-black/40"><i class="fab fa-apple text-2xl"></i></a>
+                    <a href="#" class="bg-black/20 p-2 rounded-lg hover:bg-black/40"><i class="fab fa-google-play text-2xl"></i></a>
+                </div>
+                <p class="text-xs mt-4">© 2026 DocPoc Morocco</p>
+            </div>
+        </div>
+        <div class="border-t border-white/20 pt-6 flex flex-wrap justify-between text-xs">
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-white">Terms</a>
+                <a href="#" class="hover:text-white">Cookies</a>
+            </div>
+            <div class="flex gap-3 mt-3 sm:mt-0">
+                <i class="fab fa-facebook hover:text-white"></i>
+                <i class="fab fa-instagram hover:text-white"></i>
+                <i class="fab fa-linkedin hover:text-white"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', function(){
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Login state mock (update header)
+    if(localStorage.getItem('docpoc_user')) {
+        const loginBtn = document.getElementById('loginBtnHeader');
+        if(loginBtn) {
+            loginBtn.textContent = 'My Account';
+            loginBtn.href = 'appointments.html';
+            loginBtn.classList.remove('hidden');
+        }
+    }
+
+    // Render featured doctors on homepage (first 3 doctors from data)
+    window.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('featuredDoctorsContainer');
+        if (container && window.DocPocData && window.DocPocData.doctors) {
+            const featured = window.DocPocData.doctors.slice(0, 3);
+            container.innerHTML = featured.map(doc => `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition">
+                    <div class="p-5">
+                        <div class="flex items-start gap-4">
+                            <img src="${doc.image}" alt="${doc.name}" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow">
+                            <div>
+                                <h4 class="font-bold text-lg">${doc.name}</h4>
+                                <p class="text-primary text-sm font-medium">${doc.specialty}</p>
+                                <div class="flex items-center text-yellow-400 text-sm mt-1">
+                                    ${'★'.repeat(Math.floor(doc.rating))}${doc.rating % 1 ? '½' : ''}
+                                    <span class="text-gray-500 ml-1">(${doc.rating} • ${doc.reviews} reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <div><i class="fas fa-map-marker-alt w-4 text-primary/70"></i> ${doc.city}</div>
+                            <div><i class="far fa-clock"></i> Next avail: ${doc.availableToday ? 'Today' : 'Tomorrow'}</div>
+                        </div>
+                        <a href="doctor-profile.html?id=${doc.id}" class="mt-5 block w-full bg-primary/10 text-primary font-semibold text-center py-2.5 rounded-xl hover:bg-primary hover:text-white transition">Book appointment</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors in Morocco • DocPoc</title>
+    <meta name="description" content="Search and filter doctors by specialty, location, availability and ratings. Book appointments online.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#0B63E5', secondary: '#1E293B', accent: '#F59E0B', soft: '#F8FAFC' },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-soft font-sans text-secondary antialiased">
+
+<!-- Header (same as index) -->
+<header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 md:h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fas fa-stethoscope text-3xl text-primary"></i>
+                    <span class="text-2xl font-bold text-primary tracking-tight">Doc<span class="text-secondary">Poc</span></span>
+                    <span class="bg-primary/10 text-primary text-xs font-semibold px-2 py-1 rounded-full ml-2">Morocco</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="index.html" class="text-secondary hover:text-primary">Home</a>
+                <a href="doctors.html" class="text-primary font-semibold">Find Doctors</a>
+                <a href="appointments.html" class="text-secondary hover:text-primary">My Appointments</a>
+                <a href="teleconsultation.html" class="text-secondary hover:text-primary">Teleconsult</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <a href="login.html" class="text-sm font-semibold text-primary border border-primary/30 hover:bg-primary/5 px-4 py-2 rounded-full hidden md:inline-block">Login</a>
+                <a href="signup.html" class="bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:bg-primary/90">Sign up</a>
+                <button id="mobileMenuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t px-4 py-4 space-y-3">
+        <a href="index.html" class="block py-2">Home</a>
+        <a href="doctors.html" class="block py-2 font-medium text-primary">Find Doctors</a>
+        <a href="appointments.html" class="block py-2">My Appointments</a>
+        <a href="teleconsultation.html" class="block py-2">Teleconsult</a>
+        <a href="login.html" class="block py-2 text-primary">Login</a>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Page Title -->
+    <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-secondary">Find a doctor</h1>
+        <p class="text-gray-500 mt-2">Browse and book appointments with the best healthcare professionals in Morocco.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-8 flex flex-wrap gap-4 items-end">
+        <div class="flex-1 min-w-[200px]">
+            <label class="block text-sm font-medium text-gray-600 mb-1">Specialty</label>
+            <select id="specialtyFilter" class="w-full border-gray-200 rounded-xl py-2.5 px-3 focus:ring-primary focus:border-primary">
+                <option value="">All specialties</option>
+                <option>General practitioner</option>
+                <option>Cardiologist</option>
+                <option>Dermatologist</option>
+                <option>Dentist</option>
+                <option>Gynecologist</option>
+                <option>Pediatrician</option>
+            </select>
+        </div>
+        <div class="flex-1 min-w-[180px]">
+            <label class="block text-sm font-medium text-gray-600 mb-1">City</label>
+            <select id="cityFilter" class="w-full border-gray-200 rounded-xl py-2.5 px-3">
+                <option value="">All cities</option>
+                <option>Casablanca</option>
+                <option>Rabat</option>
+                <option>Marrakech</option>
+                <option>Tangier</option>
+            </select>
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="availableToday" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm">Available today</span>
+            </label>
+        </div>
+        <button id="applyFilters" class="bg-primary text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-primary/90 transition">Apply filters</button>
+        <button id="resetFilters" class="text-gray-500 hover:text-secondary px-4 py-2.5">Reset</button>
+    </div>
+
+    <!-- Results count & sort -->
+    <div class="flex justify-between items-center mb-4">
+        <p class="text-gray-600"><span id="resultCount">12</span> doctors found</p>
+        <select id="sortSelect" class="border-gray-200 rounded-lg text-sm py-1.5">
+            <option>Recommended</option>
+            <option>Rating (high to low)</option>
+            <option>Soonest available</option>
+        </select>
+    </div>
+
+    <!-- Doctor List Grid -->
+    <div id="doctorsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamically populated by JS -->
+    </div>
+</main>
+
+<!-- Footer (same as index, shortened for brevity) -->
+<footer class="bg-secondary text-white/80 py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+        © 2026 DocPoc Morocco • <a href="#" class="hover:text-white">Privacy</a> • <a href="#" class="hover:text-white">Terms</a>
+    </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    // Additional page-specific init
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof window.renderDoctorCards === 'function') {
+            window.renderDoctorCards();
+        }
+        // Mobile menu
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', ()=> {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    });
+</script>
+</body>
+</html>

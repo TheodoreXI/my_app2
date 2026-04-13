@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleconsultation • DocPoc</title>
+    <meta name="description" content="Book a secure video consultation with Moroccan doctors.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-soft font-sans">
+
+<header> ... </header>
+
+<main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="bg-gradient-to-r from-primary/10 to-white p-8 rounded-3xl mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold">Teleconsultation</h1>
+        <p class="text-lg text-gray-600 mt-2 max-w-2xl">Consult a doctor via secure video call from the comfort of your home.</p>
+    </div>
+
+    <!-- Filter teleconsult doctors -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm mb-8 flex flex-wrap gap-3">
+        <select id="teleSpecialty" class="border-gray-200 rounded-xl p-2.5">
+            <option>All specialties</option>
+            <option>General medicine</option>
+            <option>Dermatology</option>
+            <option>Psychology</option>
+            <option>Nutrition</option>
+        </select>
+        <button id="findTeleconsult" class="bg-primary text-white px-6 py-2.5 rounded-xl">Find available</button>
+    </div>
+
+    <div id="teleDoctorsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Teleconsult-specific doctor cards (includes video icon) -->
+    </div>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded', ()=> { if(window.renderTeleconsult) window.renderTeleconsult(); });</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* Custom smooth styles */
+body { -webkit-font-smoothing: antialiased; }
+.nav-link.active { @apply text-primary font-semibold; }
+/* Card hover effects */
+.doctor-card { transition: all 0.2s ease; }
+.rating-stars { color: #fbbf24; }
+/* Slick transitions */
+button, a { transition: all 0.15s; }
+/* Loading spinner */
+.spinner { border: 3px solid rgba(11,99,229,0.2); border-top-color: #0B63E5; }

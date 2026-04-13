@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile • DocPoc</title>
+    <meta name="description" content="View doctor details, availability, and book an appointment.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#0B63E5', secondary: '#1E293B' } } } }</script>
+</head>
+<body class="bg-soft font-sans">
+
+<!-- Header identical to index (omitted for brevity, reuse same structure) -->
+<header class="bg-white shadow-sm sticky top-0 z-50 border-b"> ... </header>
+
+<main class="max-w-7xl mx-auto px-4 py-10">
+    <div id="profileContent" class="bg-white rounded-3xl shadow-sm border p-6 md:p-8">
+        <!-- Populated by JS based on URL param -->
+        <div class="text-center py-12">Loading doctor information...</div>
+    </div>
+
+    <!-- Booking Modal (hidden by default) -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/30 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4">
+            <h3 class="text-xl font-bold mb-4">Confirm your appointment</h3>
+            <div id="modalDetails" class="mb-4"></div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Reason for visit</label>
+                <input type="text" placeholder="e.g., Routine checkup" class="w-full border rounded-xl p-2.5">
+            </div>
+            <div class="flex gap-3 justify-end">
+                <button onclick="closeBookingModal()" class="px-4 py-2 border rounded-xl">Cancel</button>
+                <button onclick="confirmBooking()" class="bg-primary text-white px-6 py-2 rounded-xl">Confirm</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    // Initialize profile page
+    window.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const doctorId = params.get('id');
+        if (doctorId && window.renderDoctorProfile) {
+            window.renderDoctorProfile(doctorId);
+        } else {
+            document.getElementById('profileContent').innerHTML = '<p class="text-red-500">Doctor not found.</p>';
+        }
+    });
+</script>
+</body>
+</html>

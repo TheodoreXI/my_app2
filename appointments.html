@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments • DocPoc</title>
+    <meta name="description" content="Manage your upcoming and past appointments.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#0B63E5' } } } }</script>
+</head>
+<body class="bg-soft font-sans">
+
+<header class="bg-white shadow-sm sticky top-0 z-50 border-b"> ... </header>
+
+<main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-secondary">My appointments</h1>
+        <a href="doctors.html" class="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold">Book new</a>
+    </div>
+
+    <!-- Tabs -->
+    <div class="border-b border-gray-200 mb-6">
+        <nav class="flex gap-6">
+            <button class="tab-btn active pb-2 text-primary border-b-2 border-primary font-medium" data-tab="upcoming">Upcoming</button>
+            <button class="tab-btn pb-2 text-gray-500" data-tab="past">Past</button>
+        </nav>
+    </div>
+
+    <!-- Upcoming Appointments -->
+    <div id="upcomingTab" class="space-y-4">
+        <div id="upcomingList" class="grid gap-4">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+    <!-- Past Appointments (hidden) -->
+    <div id="pastTab" class="hidden space-y-4">
+        <div id="pastList" class="grid gap-4"></div>
+    </div>
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.renderAppointments) window.renderAppointments();
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'text-primary', 'border-primary', 'border-b-2'));
+                btn.classList.add('active', 'text-primary', 'border-primary', 'border-b-2');
+                const tab = btn.dataset.tab;
+                document.getElementById('upcomingTab').classList.toggle('hidden', tab !== 'upcoming');
+                document.getElementById('pastTab').classList.toggle('hidden', tab !== 'past');
+            });
+        });
+    });
+</script>
+</body>
+</html>
