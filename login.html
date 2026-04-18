@@ -4,29 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login • DocPoc</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-soft flex items-center justify-center min-h-screen font-sans">
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-sans">
+
     <div class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md">
+        
+        <!-- Header -->
         <div class="text-center mb-6">
-            <i class="fas fa-stethoscope text-4xl text-primary"></i>
-            <h2 class="text-2xl font-bold mt-2">Welcome back</h2>
+            <i class="fas fa-stethoscope text-4xl text-blue-500"></i>
+            <h2 class="text-2xl font-bold mt-2">Welcome</h2>
         </div>
-        <form onsubmit="mockLogin(event)" class="space-y-4">
-            <input type="email" placeholder="Email" class="w-full border p-3 rounded-xl" required>
-            <input type="password" placeholder="Password" class="w-full border p-3 rounded-xl" required>
-            <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-semibold">Log in</button>
+
+        <!-- FORM -->
+        <form id="authForm" class="space-y-4">
+            <input type="email" id="email" placeholder="Email" class="w-full border p-3 rounded-xl" required>
+            <input type="password" id="password" placeholder="Password" class="w-full border p-3 rounded-xl" required>
+
+            <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-xl font-semibold">
+                Login
+            </button>
         </form>
-        <p class="text-center mt-4 text-sm">New to DocPoc? <a href="signup.html" class="text-primary font-medium">Sign up</a></p>
+
+        <!-- Toggle -->
+        <button onclick="window.location.href='Sign_up.html'" class="mt-4 text-sm text-blue-500 w-full">
+            Switch to Sign up
+        </button>
+
+        <!-- Footer -->
+        <p class="text-center mt-4 text-sm">
+            New to DocPoc?
+            <a href="#" class="text-blue-500 font-medium">Sign up</a>
+        </p>
+
     </div>
-    <script>
-        function mockLogin(e) {
+
+    <!-- SCRIPT -->
+    <script type="module">
+        import { login } from "../js/mech.js";
+
+
+        const form = document.getElementById("authForm");
+
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            localStorage.setItem('docpoc_user', 'demo');
-            window.location.href = 'index.html';
-        }
+
+            try {
+                const res =  await login(email, password);
+
+                alert(res);
+            } catch (err) {
+                alert(err.message);
+            }
+        });
     </script>
+
 </body>
 </html>

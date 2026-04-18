@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up • DocPoc</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-sans">
+
+<div class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md">
+
+    <!-- Header -->
+    <div class="text-center mb-6">
+        <i class="fas fa-user-plus text-4xl text-blue-500"></i>
+        <h2 class="text-2xl font-bold mt-2">Create Account</h2>
+    </div>
+
+    <!-- FORM -->
+    <form id="authForm" class="space-y-3">
+
+		<!-- REQUIRED -->
+		<input type="text" id="firstName" placeholder="First Name *"
+			class="w-full border p-3 rounded-xl" required>
+
+		<input type="text" id="lastName" placeholder="Last Name *"
+			class="w-full border p-3 rounded-xl" required>
+
+		<input type="email" id="email" placeholder="Email *"
+			class="w-full border p-3 rounded-xl" required>
+
+		<input type="tel" id="phone" placeholder="Phone Number *"
+			class="w-full border p-3 rounded-xl" required>
+
+		<!-- DATE OF BIRTH (replaces age) -->
+		<input type="date" id="dob"
+			class="w-full border p-3 rounded-xl" required>
+
+		<input type="password" id="password" placeholder="Password *"
+			class="w-full border p-3 rounded-xl" required>
+
+		<!-- OPTIONAL -->
+		<input type="text" id="bloodType" placeholder="Blood Type (optional)"
+			class="w-full border p-3 rounded-xl">
+
+		<button type="submit"
+			class="w-full bg-blue-500 text-white py-3 rounded-xl font-semibold">
+			Sign up
+		</button>
+
+	</form>
+
+    <!-- Toggle -->
+    <button onclick="window.location.href='login.html'" 
+    class="mt-4 text-sm text-blue-500 w-full">
+        Already have an account? Login
+    </button>
+
+</div>
+
+<!-- SCRIPT -->
+<script type="module">
+import { signup } from "../js/mech.js";
+
+const form = document.getElementById("authForm");
+
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const age = document.getElementById("age");
+const bloodType = document.getElementById("bloodType");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const password = document.getElementById("password");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const userData = {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        email: email.value,
+        phone: phone.value,
+        dob: dob.value, // 👈 new field
+        bloodType: bloodType.value || null // optional
+    };
+
+    try {
+        const res = await signup(email.value, password.value, userData);
+        alert(res);
+        window.location.href = "login.html";
+    } catch (err) {
+        alert(err.message);
+    }
+});
+</script>
+
+</body>
+</html>
