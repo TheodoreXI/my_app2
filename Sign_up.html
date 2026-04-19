@@ -64,38 +64,36 @@
 
 <!-- SCRIPT -->
 <script type="module">
-import { signup } from "../js/mech.js";
+    import { signup } from "./assets/js/mech.js";
 
-const form = document.getElementById("authForm");
+    const form = document.getElementById("authForm");
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const dob = document.getElementById("dob");
+    const password = document.getElementById("password");
+    const bloodType = document.getElementById("bloodType");
 
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const age = document.getElementById("age");
-const bloodType = document.getElementById("bloodType");
-const email = document.getElementById("email");
-const phone = document.getElementById("phone");
-const password = document.getElementById("password");
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+        const userData = {
+            firstName: firstName.value.trim(),
+            lastName: lastName.value.trim(),
+            phone: phone.value.trim(),
+            dob: dob.value,
+            bloodType: bloodType.value.trim() || null
+        };
 
-    const userData = {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        phone: phone.value,
-        dob: dob.value, // 👈 new field
-        bloodType: bloodType.value || null // optional
-    };
-
-    try {
-        const res = await signup(email.value, password.value, userData);
-        alert(res);
-        window.location.href = "login.html";
-    } catch (err) {
-        alert(err.message);
-    }
-});
+        try {
+            await signup(email.value.trim(), password.value, userData);
+            alert("Account created! Please log in.");
+            window.location.href = "login.html";
+        } catch (err) {
+            alert(err.message);
+        }
+    });
 </script>
 
 </body>
