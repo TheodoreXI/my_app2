@@ -1,4 +1,4 @@
-const API_URL = "http://loclahost:3000"; // this gonna change to your backend api 
+const API_URL = "/api"; // this gonna change to your backend api 
 
 export async function signup(email, password, userData)
 {
